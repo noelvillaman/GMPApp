@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">GMPApp</string>
+    <string name="app_name">GM Practice App</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">GENERAL\nMOTORS</string>
+    <string name="api_error_repos">Something went wrong. \nTry again later.</string>
+    <string name="list_of_commits">List of Commits</string>
 </resources>
