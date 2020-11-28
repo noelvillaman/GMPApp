@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.software.leonwebmedia.gmpapp.ui.main.MainFragment;
+import com.software.leonwebmedia.gmpapp.ui.main.ListFragment;
+
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
+                    .replace(R.id.container, ListFragment.newInstance())
                     .commitNow();
         }
     }

@@ -40,12 +40,13 @@ public class MainViewModel extends ViewModel {
 
     private void fetchCommitss() {
         loading.setValue(true);
-        commitsCall = CommitsApi.getInstance().getRepositories();
+        commitsCall = CommitsApi.getInstance().getLatestCommits();
         commitsCall.enqueue(new Callback<List<Commits>>() {
             @Override
             public void onResponse(Call<List<Commits>> call, Response<List<Commits>> response) {
                 commitsLoadError.setValue(false);
                 commits.setValue(response.body());
+                //Log.i("BODY", response.body().toString());
                 loading.setValue(false);
                 commitsCall = null;
             }
