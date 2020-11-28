@@ -23,7 +23,7 @@ public class MainViewModel extends ViewModel {
     private Call<List<Commits>> commitsCall;
 
     public MainViewModel() {
-        fetchCommitss();
+        fetchCommits();
     }
 
     public LiveData<List<Commits>> getCommits() {
@@ -38,7 +38,7 @@ public class MainViewModel extends ViewModel {
         return loading;
     }
 
-    private void fetchCommitss() {
+    private void fetchCommits() {
         loading.setValue(true);
         commitsCall = CommitsApi.getInstance().getLatestCommits();
         commitsCall.enqueue(new Callback<List<Commits>>() {
@@ -46,14 +46,13 @@ public class MainViewModel extends ViewModel {
             public void onResponse(Call<List<Commits>> call, Response<List<Commits>> response) {
                 commitsLoadError.setValue(false);
                 commits.setValue(response.body());
-                //Log.i("BODY", response.body().toString());
                 loading.setValue(false);
                 commitsCall = null;
             }
 
             @Override
             public void onFailure(Call<List<Commits>> call, Throwable t) {
-                Log.e(getClass().getSimpleName(), "Error loading Commitss", t);
+                Log.e(getClass().getSimpleName(), "Error loading Commits", t);
                 commitsLoadError.setValue(true);
                 loading.setValue(false);
                 commitsCall = null;
